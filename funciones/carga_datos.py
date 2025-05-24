@@ -58,20 +58,46 @@ legajos = [
     89017, 90128, 12349, 23450, 34561
 ]
 
-def cargar_nombre():
+def cargar_nombre()->str:
     bandera = True
     while bandera:
         nombre = input("Ingresar nombre del alumno:" )
         for i in range(len(nombre)):
             caracter_ascii = ord(i)
-            if caracter_ascii < 65 and caracter_ascii > 90 or caracter_ascii < 97 and caracter_ascii > 122:
-                
+            if caracter_ascii >= 65 and caracter_ascii <= 90 or caracter_ascii >= 97 and caracter_ascii <= 122:
+                bandera = False
+            else:
+                print("ERROR!! INGRESO UN CARACTER ERRONEO - SOLO INGRESAR LETRAS")
+    return nombre        
 
+def cargar_genero()->str:
+    bandera = True
+    while bandera:
+        genero = input("Ingresar genero del estudiante: (F)- (M) - (X)")
+        if len(genero) == 1:
+            caracter_ascii = ord(genero)
+            if caracter_ascii == 70 or caracter_ascii == 77 or caracter_ascii == 88 or caracter_ascii == 102 or caracter_ascii == 109 or caracter_ascii == 120:
+                bandera = False
+        else:
+            print("ERORR!! SOLO INGRESAR 1 CARACTER (F) or (M) or (X)")
+    return genero
+
+def cargar_legajo()->int:
+    bandera = True
+    while bandera:
+        legajo = input("Ingresar legajo del estudiante: (5 cifras numeros enteros)")
+        if len(legajo) == 5:
+            for i in range(len(legajo)):
+                caracter_ascii = ord(legajo[i])
+                if caracter_ascii >=48 and caracter_ascii <=57:
+                    bandera = False
+        else:
+            print("ERORR!!! INGRESE SOLO NUMEROs. DEBEN SER CINCO")
+    return legajo
 
 def cargar_datos():
     bandera = True   
-  
+    nombre = cargar_nombre()
 
     
-    genero = input("Ingresar genero del estudiante: (F)- (M) - (X)")
-    legajo = input("Ingresar legajo del estudiante: (5 cifras numeros enteros)")
+    
