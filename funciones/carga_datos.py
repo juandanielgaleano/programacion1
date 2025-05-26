@@ -97,39 +97,42 @@ def cargar_datos_en_matriz():
     [1, 2, 6, 5, 9],
     [8, None, 4, 3, 7]]
     #lista de nombres
-    nombres = ['Juan', 'María', 'Carlos', 'Ana', 'Luis', 'Laura', 'Miguel', 'Sofía', 'Jorge', 'Elena', 
-    'David', 'Isabel', 'Pedro', 'Carmen', 'Alejandro', 'Patricia', 'Francisco', 'Lucía', 
-    'Daniel', 'Adriana', 'Roberto', 'Verónica', 'José', 'Gabriela', 'Fernando', 'Raquel', 
-    'Ricardo', 'Beatriz', 'Manuel', 'Natalia']
-
+    nombres = [
+    'Juan', 'María', '', 'Carlos', 'Ana', '', 'Luis', 'Laura', 'Miguel', '', 
+    'Sofía', 'Jorge', 'Elena', '', 'David', 'Isabel', 'Pedro', '', 'Carmen', 
+    'Alejandro', 'Patricia', '', 'Francisco', 'Lucía', 'Daniel', '', 'Adriana', 
+    'Roberto', 'Verónica', '', 'José', 'Gabriela', 'Fernando', '', 'Raquel', 
+    'Ricardo', 'Beatriz', '', 'Manuel', 'Natalia', '']
     #lista de generos
     generos = [
-    'M', 'F', 'M', 'F', 'X',
-    'F', 'M', 'F', 'X', 'F',
-    'M', 'F', 'M', 'X', 'M',
-    'F', 'M', 'F', 'X', 'F',
-    'M', 'F', 'M', 'X', 'M',
-    'F', 'M', 'F', 'X', 'F'
+    'M', 'F', 'M', None, 'X',
+    'F', '', 'F', 'X', 'F',
+    'M', None, 'M', 'X', 'M',
+    'F', 'M', '', 'X', 'F',
+    'M', 'F', None, 'X', 'M',
+    'F', 'M', 'F', '', 'F'
     ]
 
     #Lista de legajos
     legajos = [
-    10023, 24578, 38912, 41235, 56789,
-    62401, 73562, 89014, 90125, 10236,
-    23457, 34568, 45679, 56780, 67891,
-    78902, 89013, 90124, 12340, 23451,
-    34562, 45673, 56784, 67895, 78906,
-    89017, 90128, 12349, 23450, 34561
-    ]
-
-    nombre = validar_nombre()
-    genero = validar_genero()
-    legajo = validar_legajo()
-    
+    10023, 24578, None, 41235, 56789,
+    62401, '', 89014, 90125, 10236,
+    23457, 34568, None, 56780, 67891,
+    78902, '', 90124, 12340, 23451,
+    34562, 45673, None, 67895, 78906,
+    '', 90128, 12349, 23450, 34561
+]
 
     for i in range(len(matriz_notas_estudiantes)):
         for j in range(len(matriz_notas_estudiantes[i])):
             if matriz_notas_estudiantes[i][j] == None:
                 print(f"Se encontro una posicion para cargar nota. \n Corresponde a {nombres[i]}")
                 matriz_notas_estudiantes[i][j] = validar_nota()
-    
+                if len(nombres[i]) < 1 or nombres[i]== None:
+                    print("Debe cargar un nombre para el estudiante")
+                    nombres[i] = validar_nombre()
+                if len(generos[i]) < 1 or generos[i] == None:
+                    print(f"Debe cargar un genero para el estudiante {nombre[i]}")
+                    generos[i] = validar_genero()
+                if len(legajos[i]) < 1 or legajos[i] == None:
+                    legajos[i] = validar_legajo()
