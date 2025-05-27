@@ -1,35 +1,44 @@
-def mostrar_menu():
+from funciones import carga_datos
+
+def mostrar_menu(matriz_notas: list, lista_nombres: list, lista_generos: list, lista_legajos: list):
     bandera = True
-    while bandera:
+    while bandera:        
         print("[1] - Cargar datos")
         print("[2] - Mostrar datos")
         print("[3] - Calcular promedio")
         print("[4] - Ordenar promedios")
         print("[5] - Mostrar materias con mayor promedio general")
         print("[6] - Mostrar datos de estudiante")
-        print("[7] - Mostrar cuantas veces se repite la calificacion de una asignatura")
+        print("[7] - Mostrar cuantas veces se repite la calificación de una asignatura")
         print("[8] - Salir")
-        opcion = input("Eliga una opcion: ")
-        caracter_ascii = ord(opcion)        
-        if caracter_ascii >= 49 and caracter_ascii <= 56:
-            bandera = False
+        
+        opcion = input("Elija una opción (1-8): ")       
+        if len(opcion) == 1:
+            codigo = ord(opcion)
+            if 49 <= codigo <= 56:  
+                opcion = int(opcion)
+                bandera = False
+            else:
+                print("\nERROR: Debe ingresar un número entre 1 y 8")
         else:
-            print("ERROR!! NO SELECCIONO UNA OPICION VALIDA \nSeleccione una opcion valida entre el 1 - 8")
+            print("\nERROR: Debe ingresar solo un carácter")
 
     match opcion:
         case 1:
-            print("[1] - Cargar datos")
+            print("\n[1] - Cargar datos")
+            carga_datos.cargar_datos_en_matriz(matriz_notas, lista_nombres, lista_generos, lista_legajos)
         case 2:
-            print("[2] - Mostrar datos")
+            print("\n[2] - Mostrar datos")
+            
         case 3:
-            print("[3] - Calcular promedio")
+            print("\n[3] - Calcular promedio")
         case 4:
-            print("[4] - Ordenar promedios")
+            print("\n[4] - Ordenar promedios")
         case 5:
-            print("[5] - Mostrar materias con mayor promedio general")
+            print("\n[5] - Mostrar materias con mayor promedio general")
         case 6:
-            print("[6] - Mostrar datos de estudiante")
+            print("\n[6] - Mostrar datos de estudiante")
         case 7:
-            print("[7] - Mostrar cuantas veces se repite la calificacion de una asignatura")
-        case 8:
+            print("\n[7] - Mostrar cuantas veces se repite la calificación de una asignatura")
+        case 8:            
             print("[8] - Salir")
