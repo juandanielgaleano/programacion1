@@ -86,44 +86,30 @@ def cargar_datos_en_matriz(matriz_notas_estudiantes:list, nombres:list, generos:
             if matriz_notas_estudiantes[i][j] == None:
                 print(f"Se encontro una posicion para cargar nota.\nlegajo: {legajos[i]}\ngenero: {generos[i]}\nnombre: {nombres[i]}\nMATERIA_{j+1}")                
                 matriz_notas_estudiantes[i][j] = validar_nota()
-                if nombres[i] == None:
-                    print("Debe cargar un nombre para el estudiante")
-                    nombres[i] = validar_nombre()
-                if len(nombres[i]) < 1:
-                    print(f"Se encontro en la posicion {i} nombre vacio")
-                    nombres[i] = validar_nombre()
-                if generos[i] == None:
-                    print(f"Debe cargar un genero para el estudiante {nombres[i]}")
-                    generos[i] = validar_genero()
-                if len(generos[i]) < 1:
-                    print(f"Debe cargar un genero para el estudiante {nombres[i]}")
-                    generos[i] = validar_genero()
-                if legajos[i] == None:
-                    print(f"El estudiante {nombres[i]} tiene legajo vacio o erroneo")
-                    bandera = True
-                    while bandera:
-                        unico = True
-                        legajo_unico = validar_legajo()
-                        for k in range(len(legajos)):
-                            if legajos[k] == legajo_unico:
-                                print("El legajo debe ser unico para cada estudiante")                            
-                                unico = False
-                                break
-                        if unico:
-                            legajos[i] = legajo_unico
-                            bandera = False
-                if legajos[i] == '':
-                    print(f"El estudiante {nombres[i]} tiene legajo vacio o erroneo")
-                    bandera = True
-                    while bandera:
-                        unico = True
-                        legajo_unico = validar_legajo()
-                        for k in range(len(legajos)):
-                            if legajos[k] == legajo_unico:
-                                print("El legajo debe ser unico para cada estudiante")                            
-                                unico = False
-                                break
-                        if unico:
-                            legajos[i] = legajo_unico
-                            bandera = False
-
+            if nombres[i] == None:
+                print("Debe cargar un nombre para el estudiante")
+                nombres[i] = validar_nombre()
+            if len(nombres[i]) < 1:
+                print(f"Se encontro en la posicion {i} nombre vacio")
+                nombres[i] = validar_nombre()
+            if generos[i] == None:
+                print(f"Debe cargar un genero para el estudiante {nombres[i]}")
+                generos[i] = validar_genero()
+            if len(generos[i]) < 1:
+                print(f"Debe cargar un genero para el estudiante {nombres[i]}")
+                generos[i] = validar_genero()
+            if legajos[i] == None or legajos[i] == '':
+                print(f"El estudiante {nombres[i]} tiene legajo vacio o erroneo")
+                bandera = True
+                while bandera:
+                    unico = True
+                    legajo_unico = int(validar_legajo())                    
+                    for k in range(len(legajos)):                                                
+                        if legajos[k] == legajo_unico:                            
+                            print("El legajo debe ser unico para cada estudiante")                            
+                            unico = False
+                            break
+                    if unico:
+                        legajos[i] = legajo_unico
+                        bandera = False
+            
