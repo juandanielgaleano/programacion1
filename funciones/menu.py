@@ -1,8 +1,11 @@
 from funciones import carga_datos
 from funciones import mostrar_datos_estudiantes
+from funciones import promedios
+from funciones import ordenamiento
 
 def mostrar_menu(matriz_notas: list, lista_nombres: list, lista_generos: list, lista_legajos: list):
 
+    promedios = [0.0] * 30
     datos_cargados = False
     while True: 
         
@@ -29,19 +32,17 @@ def mostrar_menu(matriz_notas: list, lista_nombres: list, lista_generos: list, l
             print("\nERROR: Debe cargar datos primero (Opción 1)")
             continue      
         match opcion:
-            case 1:
-                print("\n[1] - Cargar datos")
+            case 1:                
                 carga_datos.cargar_datos_en_matriz(matriz_notas, lista_nombres, lista_generos, lista_legajos)
                 datos_cargados = True
-            case 2:
-                print("\n[2] - Mostrar datos")
-                mostrar_datos_estudiantes.mostrar_datos(matriz_notas, lista_nombres, lista_generos, lista_legajos)
+            case 2:                
+                mostrar_datos_estudiantes.seleccionar_muestreo(matriz_notas, lista_nombres, lista_generos, lista_legajos)
             case 3:
                 print("\n[3] - Calcular promedio")
-                
+                promedios = promedios.calcular_promedios(matriz_notas)
             case 4:
                 print("\n[4] - Ordenar promedios")
-                
+                ordenamiento.seleccionar_orden(matriz_notas, lista_nombres, lista_generos, lista_legajos,promedios)
             case 5:
                 print("\n[5] - Mostrar materias con mayor promedio general")
                 

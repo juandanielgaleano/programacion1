@@ -83,21 +83,15 @@ def cargar_datos_en_matriz(matriz_notas_estudiantes:list, nombres:list, generos:
     
     for i in range(len(matriz_notas_estudiantes)):
         for j in range(len(matriz_notas_estudiantes[i])):
-            if matriz_notas_estudiantes[i][j] == None:
+            if matriz_notas_estudiantes[i][j] == None or matriz_notas_estudiantes[i][j] == '':
                 print(f"Se encontro una posicion para cargar nota.\nlegajo: {legajos[i]}\ngenero: {generos[i]}\nnombre: {nombres[i]}\nMATERIA_{j+1}")                
                 matriz_notas_estudiantes[i][j] = validar_nota()
-            if nombres[i] == None:
+            if nombres[i] == None or len(nombres[i]) < 1:
                 print("Debe cargar un nombre para el estudiante")
                 nombres[i] = validar_nombre()
-            if len(nombres[i]) < 1:
-                print(f"Se encontro en la posicion {i} nombre vacio")
-                nombres[i] = validar_nombre()
-            if generos[i] == None:
+            if generos[i] == None or len(generos[i]) < 1:
                 print(f"Debe cargar un genero para el estudiante {nombres[i]}")
-                generos[i] = validar_genero()
-            if len(generos[i]) < 1:
-                print(f"Debe cargar un genero para el estudiante {nombres[i]}")
-                generos[i] = validar_genero()
+                generos[i] = validar_genero()            
             if legajos[i] == None or legajos[i] == '':
                 print(f"El estudiante {nombres[i]} tiene legajo vacio o erroneo")
                 bandera = True
