@@ -4,8 +4,15 @@ from funciones import promedios
 from funciones import ordenamiento
 
 def mostrar_menu(matriz_notas: list, lista_nombres: list, lista_generos: list, lista_legajos: list):
+    """Menu de opciones validado para seleccionar solo los numeros del 1 - 8
 
-    promedios = [0.0] * 30
+    Args:
+        matriz_notas (list): matriz de 30 x 5 de enteros
+        lista_nombres (list): lista de 30 nombres
+        lista_generos (list): lista de generos X-F-M
+        lista_legajos (list): lista de legajos de 5 numeros enteros cada uno
+    """
+    lista_promedios = [0.0] * 30
     datos_cargados = False
     while True: 
         
@@ -37,12 +44,10 @@ def mostrar_menu(matriz_notas: list, lista_nombres: list, lista_generos: list, l
                 datos_cargados = True
             case 2:                
                 mostrar_datos_estudiantes.seleccionar_muestreo(matriz_notas, lista_nombres, lista_generos, lista_legajos)
-            case 3:
-                print("\n[3] - Calcular promedio")
-                promedios = promedios.calcular_promedios(matriz_notas)
-            case 4:
-                print("\n[4] - Ordenar promedios")
-                ordenamiento.seleccionar_orden(matriz_notas, lista_nombres, lista_generos, lista_legajos,promedios)
+            case 3:                
+                lista_promedios = promedios.calcular_promedios(matriz_notas)
+            case 4:                
+                ordenamiento.seleccionar_orden(matriz_notas, lista_nombres, lista_generos, lista_legajos,lista_promedios)
             case 5:
                 print("\n[5] - Mostrar materias con mayor promedio general")
                 

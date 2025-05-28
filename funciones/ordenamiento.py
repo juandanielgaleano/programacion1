@@ -23,7 +23,7 @@ def ordenar_ascendente(matriz_notas: list, lista_nombres: list, lista_genero: li
                 aux_notas = matriz_notas[j]
                 matriz_notas[j] = matriz_notas[j + 1]
                 matriz_notas[j + 1] = aux_notas       
-    mostrar_datos_estudiantes.mostrar_datos(matriz_notas,lista_nombres,lista_genero,lista_legajo,lista_promedios)
+    mostrar_datos_estudiantes.mostrar_datos(matriz_notas,lista_nombres,lista_genero,lista_legajo)
     
 
 

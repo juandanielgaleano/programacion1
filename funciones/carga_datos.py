@@ -1,5 +1,10 @@
 
 def validar_nombre()->str:
+    """Al ingresar un nombre valida que no tenga espacios al principio y al final. Tampoco puede exceder los 10 caracteres ni ser menor a 2
+
+    Returns:
+        str: devuelve un nombre validado que solo utilice caracteres alfabeticos
+    """    
     bandera = True
     while bandera:
         contador = 0
@@ -26,6 +31,11 @@ def validar_nombre()->str:
     return nombre        
 
 def validar_genero()->str:
+    """Valida que el genero sea f x m puede ser mayuscula o minuscula. No permite caracteres especiales ni numeros. Solo se permite 1 caracter
+
+    Returns:
+        str: devuelve un caracter validado
+    """    
     bandera = True
     while bandera:
         genero = input("Ingresar genero del estudiante: (F)- (M) - (X)\n")
@@ -41,6 +51,11 @@ def validar_genero()->str:
     return genero
 
 def validar_legajo()->int:
+    """Valida que el legajo sean 5 numero enteros. no puede ser merno o mayor a 5
+
+    Returns:
+        int: devuelve un legajo validado
+    """    
     bandera = True
     while bandera:
         legajo = input("Ingresar legajo del estudiante: (5 cifras numeros enteros)")
@@ -54,6 +69,11 @@ def validar_legajo()->int:
     return legajo
 
 def validar_nota() -> int:
+    """La funcion valida que la nota solo sea numerica como maximo 10. 
+
+    Returns:
+        int: devuelve un numero validado entre el 1 y 10
+    """    
     bandera = True
     nota_valida = None 
     while bandera:
@@ -80,7 +100,14 @@ def validar_nota() -> int:
     return nota_valida
 
 def cargar_datos_en_matriz(matriz_notas_estudiantes:list, nombres:list, generos:list, legajos:list):
-    
+    """la funcion recorre la matriz y verifica que si no tiene datos cargados se puede completar
+
+    Args:
+        matriz_notas_estudiantes (list): matriz de enteros
+        nombres (list): espera una lista de cadenas
+        generos (list): espera una lista con caracteres
+        legajos (list): espera una lista de legajos
+    """    
     for i in range(len(matriz_notas_estudiantes)):
         for j in range(len(matriz_notas_estudiantes[i])):
             if matriz_notas_estudiantes[i][j] == None or matriz_notas_estudiantes[i][j] == '':
